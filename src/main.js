@@ -3,21 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import Layout from './components/layout'
-import VRouter from 'vue-router'
+import router from  './router/index'
 
-import IndexPage from './pages/index'
-Vue.use(VRouter)
+
 Vue.config.productionTip = false
-//实例化vueRouter
-const router=new VRouter({
-	mode:'history',
-	routes:[
-		{
-			path:'/',
-			component:IndexPage
-		}
-	]
-})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
