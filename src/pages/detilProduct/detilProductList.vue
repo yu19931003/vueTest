@@ -9,7 +9,7 @@
 			</div>
 			<div class='projectAnalysis projectClass'>
 				<span>产品类型:</span>
-				<v-select :select-data='payCount'></v-select>
+				<v-select :select-data='payCalss' class='select' @on-change='selectOption'></v-select>
 			</div>
 			<div class='projectAnalysis time'>
 				<span>有效时间:</span>半年
@@ -30,10 +30,15 @@
 		},
 		data(){
 			return{
-				payCount:[
-					{name:'类型1',id:1},
+				payCalss:[
+					{name:'产品',id:1},
 					{name:'类型2',id:2}
 				]
+			}
+		},
+		methods:{
+			selectOption(index){
+				console.log(index)
 			}
 		}
 	}
@@ -69,5 +74,8 @@
 		border:1px solid #41b883;
 		color:#fff;
 		border-radius:2px;
+	}
+	.select{
+		display:inline-block;
 	}
 </style>

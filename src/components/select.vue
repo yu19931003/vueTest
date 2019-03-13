@@ -1,11 +1,12 @@
 <template>
 	<div class='select'>
 		<div class='selectBox' @click='selectClick'>
+			<span class='selectedData'>{{selectData[selectedDataIndex].name}}</span>
 			<span class='selectBtn'></span>
 		</div>
 		<div class='selectOption' v-show='selectOption'>
 			<ul>
-				<li v-for='(item,index) in select' :key='index' >{{item.name}}</li>
+				<li v-for='(item,index) in select' :key='index' @click='selectedOption(index)'>{{item.name}}</li>
 			</ul>
 		</div>
 	</div>
@@ -16,7 +17,8 @@
 		data(){
 			return{
 				selectOption:false,
-				select:this.selectData
+				select:this.selectData,
+				selectedDataIndex:0//被选中的值
 			}
 		},
 		created(){
@@ -24,7 +26,13 @@
 		},
 		methods:{
 			selectClick(){
-				this.selectOption=!this.selectOption
+				this.selectOption=!this.selectOption;
+			},
+			//被选中的方法
+			selectedOption(index){
+				this.selectedDataIndex=index;
+				this.selectOption=false;
+				this.$emit('on-change',index);
 			}
 		}
 	}
@@ -41,8 +49,8 @@
 		user-select: none;
    	}
 	.selectBox{
-		width:60px;
-		height:20px;
+		width:80px;
+		height:28px;
 		border:1px solid #ccc;
 		position:relative;
 
@@ -52,23 +60,28 @@
 		border-left:5px solid transparent;
 		border-top:5px solid #999;
 		position:absolute;
-		right:5px;
-		top:8px;
+		right:10px;
+		top:12px;
 	}
 	.selectOption{
 		border:1px solid #ccc;
-		width:60px;
+		width:80px;
 		position:absolute;
 		left:0;
-		top:20px;
+		top:27px;
 		background:#ffff;
 	}
 	.selectOption li{
 		line-height:20px;
 		border-bottom:1px solid #ccc;
-		text-align:center;
+		text-indent:10px;
 	}
 	.selectOption li:last-child{
 		border:0;
+	}
+	.selectedData{
+		display:block;
+		margin-top:-5px;
+		margin-left:10px;
 	}
 </style>
