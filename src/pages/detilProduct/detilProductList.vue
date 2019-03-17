@@ -5,7 +5,7 @@
 			<p>这里是对产品的介绍这里是对产,品的介绍这里是对产品的介绍这里是对产品的介绍这里是对产品的介绍这里是对。产品的介绍这里是对产品的介绍这里是对产品的介绍这里是对产品的介绍这里是对产品的介绍这里是对产品的介绍这里是对产品的介绍。</p>
 			<div class='projectAnalysis payCount'>
 				<span>购买数量:</span>
-				
+				<v-count class='count'></v-count>
 			</div>
 			<div class='projectAnalysis projectClass'>
 				<span>产品类型:</span>
@@ -19,14 +19,19 @@
 			</div>
 			<button class='btn'>立即购买</button>
 		</div>
-		<div></div>
+		<div class='projectInfo'>
+			<h1>产品介绍</h1>
+			<p>产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍产品的详细介绍。</p>
+		</div>
 	</div>
 </template>
 <script>
 	import vSelect from '../../components/select'
+	import vCount from '../../components/count'
 	export default{
 		components:{
-			vSelect
+			vSelect,
+			vCount
 		},
 		data(){
 			return{
@@ -49,11 +54,11 @@
 		background:#fff;
 		padding:20px 30px;
 	}
-	.analysis h1{
+	h1{
 		line-height: 50px;
 		font-size: 20px;
 	}
-	.analysis p{
+	p{
 		font-size: 16px;
 		color:#666;
 		line-height:28px;
@@ -77,5 +82,15 @@
 	}
 	.select{
 		display:inline-block;
+	}
+	.projectInfo{
+		height:200px;
+		background:#fff;
+		margin-top:20px;
+		padding:20px 30px;
+	}
+	.count{
+		display:inline-block;
+		
 	}
 </style>
